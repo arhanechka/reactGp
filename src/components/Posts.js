@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "../forms.css";
+import { Link, useLocation } from "react-router-dom";
 
-function Posts() {
+function Posts(props) {
+const location = useLocation();
+console.log(location.state.state.username)
   const posts = [
     {
       name: "Awesome Post 1",
@@ -16,6 +19,12 @@ function Posts() {
   const [postText, setPostText] = useState("");
   const [postTexts, setPostTexts] = useState(posts);
   const [postName, setPostName] = useState("");
+  const [editingIndex, setEditingIndex] = useState();
+
+  //   const checkPostExists = (newpost)=> {
+  //     if( postTexts.find(post => newpost.name === post.name && newpost.text === post.text))
+  //     setIsEditing(true);
+  //   }
 
   const handlePostNameChange = (e) => {
     setPostName(e.target.value);
@@ -25,9 +34,16 @@ function Posts() {
     setPostText(e.target.value);
   };
 
+  const editPost = (index) => {
+    const post = postTexts[index];
+    setEditingIndex(index);
+    setPostText(post.text);
+    setPostName(post.name);
+  };
+
   const renderPosts = () => {
     return postTexts.map((post, index) => (
-      <div key={index} className="post-block">
+      <div key={index} className="post-block" onClick={() => editPost(index)}>
         <h3>{post.name}</h3>
         <p>{post.text}</p>
       </div>
@@ -38,20 +54,28 @@ function Posts() {
     e.preventDefault();
     console.log("Post submitted:");
     console.log("Post Text:", postText);
-    // Add your post submission logic here
-
     const newPost = {
       name: postName,
       text: postText,
     };
-
-    setPostTexts((prevPosts) => [...prevPosts, newPost]);
-
+    if (editingIndex !== undefined) {
+      const newPosts = [...postTexts];
+      console.log(newPosts);
+      newPosts[editingIndex] = newPost;
+      setPostTexts(newPosts);
+      setEditingIndex(undefined);
+    } else {
+      setPostTexts((prevPosts) => [...prevPosts, newPost]);
+    }
+    // here should be PATCH
     setPostName("");
     setPostText("");
   };
   return (
     <div className="post-container">
+         <div className="user-button">
+            Hello, {location.state.state.username}
+        </div>
       <form className="post-form" onSubmit={handlePostSubmit}>
         <h2 className="mb-3">Create a New Post</h2>
         <div className="mb-3">

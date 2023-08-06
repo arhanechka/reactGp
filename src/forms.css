@@ -48,6 +48,21 @@
     left: 20px;
   }
 
+  .logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin-left: 15;
+  }
+
+  .user-button {
+    position: absolute;
+    top: 18px;
+    right: 100px;
+    font-size: 20px; /* Adjust font size as needed */
+    font-family: 'YourHandmadeFont', cursive; 
+  }
+
   /* PostForm.css */
 .post-container {
     width: 80%;

@@ -11,7 +11,7 @@ function SignupForm() {
 
   const routeChange = () => {
     let path = `/posts`;
-    navigate(path, { state: [], replace: true });
+    navigate(path, { state: { state: { username: username } }, replace: true });
   };
 
   const handleUsernameChange = (e) => {
