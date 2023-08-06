@@ -1,0 +1,88 @@
+/* Custom styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%; 
+  }
+  
+  .login-card {
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  .login-card-header {
+    background-color: #4f8b36;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    border-color: #4f8b36;
+  }
+  
+  .btn-primary {
+    background-color: #4f8b36;
+    border-color: #4f8b36;
+  }
+  
+  .btn-primary:hover {
+    background-color: #437b30;
+    border-color: #437b30;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  /* PostForm.css */
+.post-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .post-form textarea {
+    width: 100%;
+  }
+  
+  .post-form button {
+    margin-top: 10px;
+  }
+ /* PostDisplay.css */
+ .post-display {
+    margin: 20px auto;
+  }
+  
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto; /* Center the post-list horizontally */
+  }
+  
+  .post-block {
+    border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px; /* Adjust font size as needed */
+  font-family: 'YourHandmadeFont', cursive; 
+  }
+  
+  
+  
+  
+  
+  
